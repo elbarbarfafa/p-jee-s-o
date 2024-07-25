@@ -18,8 +18,35 @@ public class Medecin {
 	@Column(length = 150)
 	private String nom;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "medecin")
 	private Set<Consultation> consultations;
+
+	public String getMatricule() {
+		return matricule;
+	}
+
+	public void setMatricule(String matricule) {
+		this.matricule = matricule;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Set<Consultation> getConsultations() {
+		return consultations;
+	}
+	
+	public void addConsultation(Consultation consultation)
+	{
+		this.consultations.add(consultation);
+		consultation.setMedecin(this);
+	}
+	
 	
 	
 }

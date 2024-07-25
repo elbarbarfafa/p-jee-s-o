@@ -1,5 +1,6 @@
 package fr.elbarbary.p_jee_s_o.entities;
 
+import java.util.Collections;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -19,8 +20,33 @@ public class Patient {
 	@Column(length=150)
 	private String nom;
 	
-	@OneToMany()
+	@OneToMany(mappedBy = "patient")
 	private Set<Consultation> consultations;
+
+	public String getNumeroSS() {
+		return numeroSS;
+	}
+
+	public void setNumeroSS(String numeroSS) {
+		this.numeroSS = numeroSS;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Set<Consultation> getConsultations() {
+		return Collections.unmodifiableSet(consultations);
+	}
 	
+	public void addConsultation(Consultation consultation)
+	{
+		this.consultations.add(consultation);
+		consultation.setPatient(this);
+	}
 	
 }

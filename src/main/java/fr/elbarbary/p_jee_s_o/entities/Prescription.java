@@ -30,4 +30,39 @@ public class Prescription {
 	 */
 	@Column
 	private int prises;
+
+	public PrescriptionKey getId() {
+		return id;
+	}
+
+	public void setId(PrescriptionKey id) {
+		this.id = id;
+	}
+
+	public Medicament getMedicament() {
+		return medicament;
+	}
+
+	public void setMedicament(Medicament medicament) {
+		this.medicament = medicament;
+		medicament.addPrescription(this);
+	}
+
+	public Consultation getConsultation() {
+		return consultation;
+	}
+
+	public void setConsultation(Consultation consultation) {
+		this.consultation = consultation;
+	}
+
+	public int getPrises() {
+		return prises;
+	}
+
+	public void setPrises(int prises) {
+		this.prises = prises;
+	}
+	
+	
 }
