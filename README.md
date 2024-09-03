@@ -1,6 +1,9 @@
 ME Expert IT – Applications Intelligentes et Big Data (1ère année)
 # Projet d’expertise évalué : « Projet JEE, Spring, Oracle » : programmation d’un web service REST avec Spring et Oracle
 
+Ressources :
+   - SonarQube (qualité) : https://sonarcloud.io/project/overview?id=elbarbarfafa_p-jee-s-o
+
 Spécifications
 
 Construire une API REST basée sur Spring : Framework v6, Boot v3, Web, Data JPA et Security
