@@ -4,6 +4,7 @@ ME Expert IT – Applications Intelligentes et Big Data (1ère année)
 Ressources :
    - SonarQube (qualité) : https://sonarcloud.io/project/overview?id=elbarbarfafa_p-jee-s-o
    - Documentation API (openapi + swagger) : http://localhost:1350/swagger-ui/index.html#/
+   - Documentation JavaDoc : {chemin_projet}/doc/index.html
 
 Spécifications
 
