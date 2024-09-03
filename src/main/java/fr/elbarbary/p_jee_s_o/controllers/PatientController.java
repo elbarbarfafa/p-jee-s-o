@@ -14,11 +14,11 @@ import fr.elbarbary.p_jee_s_o.dtos.PatientDto;
 import fr.elbarbary.p_jee_s_o.services.IConsultationService;
 import fr.elbarbary.p_jee_s_o.services.IPatientService;
 
-@RestController
-@RequestMapping(path = "/api/patients")
 /**
  * Contrôleur déclarant les routes disponibles pour les patients
  */
+@RestController
+@RequestMapping(path = "/api/patients")
 public class PatientController {
 
 	protected IPatientService patientService;

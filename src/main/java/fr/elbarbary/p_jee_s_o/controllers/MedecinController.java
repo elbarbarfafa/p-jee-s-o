@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.elbarbary.p_jee_s_o.dtos.MedecinDto;
 import fr.elbarbary.p_jee_s_o.services.IMedecinService;
 
-@RestController
-@RequestMapping(path = "/api/medecins")
 /**
  * Contrôleur déclarant les routes disponibles pour les médecins
  */
+@RestController
+@RequestMapping(path = "/api/medecins")
 public class MedecinController {
 
 	protected IMedecinService service;
