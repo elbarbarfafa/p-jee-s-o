@@ -28,7 +28,6 @@ import fr.elbarbary.p_jee_s_o.exceptions.RestControllerControlledErrorException;
 import fr.elbarbary.p_jee_s_o.services.ConsultationService;
 import fr.elbarbary.p_jee_s_o.services.ConsultationServiceImpl;
 import fr.elbarbary.p_jee_s_o.services.PrescriptionService;
-import fr.elbarbary.p_jee_s_o.storage.StorageService;
 
 @RestController
 @RequestMapping(path = "/api/consultations")

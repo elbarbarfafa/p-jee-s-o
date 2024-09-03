@@ -4,7 +4,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import fr.elbarbary.p_jee_s_o.dtos.ConsultationDto;
 import fr.elbarbary.p_jee_s_o.dtos.PatientDto;
 import fr.elbarbary.p_jee_s_o.mappers.PatientMapperImpl;
 import fr.elbarbary.p_jee_s_o.repositories.ConsultationRepository;

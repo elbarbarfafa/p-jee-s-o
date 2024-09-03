@@ -5,7 +5,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.multipart.MultipartFile;
 
 import fr.elbarbary.p_jee_s_o.dtos.ConsultationDto;
-import fr.elbarbary.p_jee_s_o.dtos.PrescriptionDetailDto;
 import fr.elbarbary.p_jee_s_o.exceptions.DateIsBeforeException;
 import fr.elbarbary.p_jee_s_o.exceptions.DateIsNullException;
 import fr.elbarbary.p_jee_s_o.exceptions.NotFoundException;

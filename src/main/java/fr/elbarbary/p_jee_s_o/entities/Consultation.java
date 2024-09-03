@@ -1,7 +1,6 @@
 package fr.elbarbary.p_jee_s_o.entities;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
