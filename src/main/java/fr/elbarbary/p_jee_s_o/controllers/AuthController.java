@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.elbarbary.p_jee_s_o.services.AuthService;
 
 /**
- * Ce contrôleur déclare les routes accessibles pour l'authorisation d'accès à notre application
+ * Contrôleur déclarant les routes accessibles pour l'authorisation d'accès à notre application
  */
 @RestController
 @RequestMapping(path = "/api/auth")

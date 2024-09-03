@@ -13,6 +13,9 @@ import fr.elbarbary.p_jee_s_o.services.IMedecinService;
 
 @RestController
 @RequestMapping(path = "/api/medecins")
+/**
+ * Contrôleur déclarant les routes disponibles pour les médecins
+ */
 public class MedecinController {
 
 	protected IMedecinService service;
