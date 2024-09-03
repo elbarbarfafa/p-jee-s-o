@@ -1,0 +1,2 @@
+INSERT INTO patient(numero_securite_sociale, nom) VALUES("035540403-6", "DUBOIS Fred"), ("325632586-6", "CHRISTELLE Castel");
+INSERT INTO medecin(nom, matricule) VALUES("Alphonse Kapol","MAT01"),("Christophe DuBus","MAT02");

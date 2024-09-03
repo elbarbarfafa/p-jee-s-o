@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "storage",
+      "type": "fr.elbarbary.p_jee_s_o.storage.StorageProperties",
+      "sourceType": "fr.elbarbary.p_jee_s_o.storage.StorageProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "storage.location",
+      "type": "java.lang.String",
+      "description": "Chemin du fichier pour stocker les fichiers",
+      "sourceType": "fr.elbarbary.p_jee_s_o.storage.StorageProperties"
+    }
+  ],
+  "hints": []
+}

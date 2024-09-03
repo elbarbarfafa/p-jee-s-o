@@ -1,5 +1,6 @@
 package fr.elbarbary.p_jee_s_o.entities;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import jakarta.persistence.Column;
@@ -7,9 +8,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table
+@Data
 public class Medecin {
 
 	@Id
@@ -20,26 +23,6 @@ public class Medecin {
 	
 	@OneToMany(mappedBy = "medecin")
 	private Set<Consultation> consultations;
-
-	public String getMatricule() {
-		return matricule;
-	}
-
-	public void setMatricule(String matricule) {
-		this.matricule = matricule;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public Set<Consultation> getConsultations() {
-		return consultations;
-	}
 	
 	public void addConsultation(Consultation consultation)
 	{
