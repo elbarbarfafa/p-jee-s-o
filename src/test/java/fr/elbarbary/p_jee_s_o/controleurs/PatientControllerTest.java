@@ -25,7 +25,7 @@ import fr.elbarbary.p_jee_s_o.services.PatientService;
 
 @WebMvcTest(PatientController.class)
 @ExtendWith(MockitoExtension.class)
-public class PatientControllerTest {
+class PatientControllerTest {
 
 	@MockBean
 	PatientService patientService;
