@@ -24,6 +24,7 @@ import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthen
 import org.springframework.security.oauth2.server.resource.web.access.BearerTokenAccessDeniedHandler;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
@@ -48,7 +49,7 @@ public class SecurityConfig {
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		// @formatter:off
 		http
-		.csrf((cs) -> cs.disable())
+		.csrf((cs) -> cs.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
 		.cors(Customizer.withDefaults())
 		.authorizeHttpRequests((authorize) -> 
 			{
