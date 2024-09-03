@@ -2,11 +2,16 @@ package fr.elbarbary.p_jee_s_o.controllers;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.elbarbary.p_jee_s_o.services.AuthService;
 
+/**
+ * Ce contrôleur déclare les routes accessibles pour l'authorisation d'accès à notre application
+ */
 @RestController
+@RequestMapping(path = "/api/auth")
 public class AuthController {
 
 	AuthService authservice;

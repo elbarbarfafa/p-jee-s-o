@@ -9,7 +9,7 @@ import fr.elbarbary.p_jee_s_o.exceptions.DateIsBeforeException;
 import fr.elbarbary.p_jee_s_o.exceptions.DateIsNullException;
 import fr.elbarbary.p_jee_s_o.exceptions.NotFoundException;
 
-public interface ConsultationService {
+public interface IConsultationService {
 	
 	/**
 	 * Ajoute une consultation postérieur à aujourd'hui

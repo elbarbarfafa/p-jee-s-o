@@ -13,7 +13,7 @@ import fr.elbarbary.p_jee_s_o.mappers.PrescriptionMapperImpl;
 import fr.elbarbary.p_jee_s_o.repositories.PrescriptionRepository;
 
 @Service
-public class PrescriptionServiceImpl implements PrescriptionService {
+public class PrescriptionServiceImpl implements IPrescriptionService {
 
 	private final PrescriptionRepository prescriptionRepository;
 	

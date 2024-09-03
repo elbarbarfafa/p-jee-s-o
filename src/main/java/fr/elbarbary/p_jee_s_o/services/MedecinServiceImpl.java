@@ -9,25 +9,18 @@ import fr.elbarbary.p_jee_s_o.mappers.MedecinMapperImpl;
 import fr.elbarbary.p_jee_s_o.repositories.MedecinRepository;
 
 @Service
-public class MedecinService {
+public class MedecinServiceImpl implements IMedecinService {
 
-	protected MedecinRepository repository;
+protected MedecinRepository repository;
 	
 	protected MedecinMapperImpl medecinMapper;
 	
-	public MedecinService(MedecinRepository repository) {
+	public MedecinServiceImpl(MedecinRepository repository) {
 		this.repository = repository;
 		this.medecinMapper = new MedecinMapperImpl();
 	}
-	
-	
-	/**
-	 * 
-	 * @param nom : Nom du médecin recherché
-	 * @param numeroMatricule : Numéro de matricule du médecin recherché
-	 * @param pageable : Si nous devons naviguer autour de plusieurs résultats
-	 * @return Une collection pageable de médecins
-	 */
+
+	@Override
 	public Page<MedecinDto> getAll(String nom, String numeroMatricule, Pageable pageable){
 		Page<MedecinDto> result = null;
 		if((nom == null || nom.isEmpty()) && (numeroMatricule == null || numeroMatricule.isEmpty())) {
@@ -39,5 +32,5 @@ public class MedecinService {
 		}
 		return result;
 	}
-	
+
 }

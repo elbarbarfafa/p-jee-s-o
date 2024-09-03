@@ -19,7 +19,7 @@ import fr.elbarbary.p_jee_s_o.repositories.ConsultationRepository;
 import fr.elbarbary.p_jee_s_o.storage.StorageService;
 
 @Service
-public class ConsultationServiceImpl implements ConsultationService {
+public class ConsultationServiceImpl implements IConsultationService {
 
 	private final ConsultationRepository consultationRepository;
 	

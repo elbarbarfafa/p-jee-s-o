@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthService {
+public class AuthService implements IAuthService {
 
 	JwtEncoder encoder;
 	
@@ -23,11 +23,8 @@ public class AuthService {
 		this.decoder = decoder;
 	}
 	
-	/**
-	 * Crée un token JWT basé sur l'authentication avec sa durée et les rôles
-	 * @param auth 
-	 * @return le token JWT en format String.
-	 */
+
+	@Override
 	public String authenticate(Authentication auth) {
 		Instant now = Instant.now();
 		long expiry = 36000L;

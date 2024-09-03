@@ -11,24 +11,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.elbarbary.p_jee_s_o.dtos.ConsultationDto;
 import fr.elbarbary.p_jee_s_o.dtos.PatientDto;
-import fr.elbarbary.p_jee_s_o.services.ConsultationService;
-import fr.elbarbary.p_jee_s_o.services.PatientService;
+import fr.elbarbary.p_jee_s_o.services.IConsultationService;
+import fr.elbarbary.p_jee_s_o.services.IPatientService;
 
 @RestController
 @RequestMapping(path = "/api/patients")
 public class PatientController {
 
-	protected PatientService patientService;
-	protected ConsultationService consultationService;
+	protected IPatientService patientService;
+	protected IConsultationService consultationService;
 	
-	public PatientController(PatientService patientService, ConsultationService consultationService) {
+	public PatientController(IPatientService patientService, IConsultationService consultationService) {
 		this.patientService = patientService;
 		this.consultationService = consultationService;
 	}
 	
+
 	/**
-	 * Récupérer l'ensemble des consultations d'un patient
-	 * @return
+	 * Récupère l'ensemble des consultations d'un patient
+	 * @param secu : Numéro de sécurité social du patient
+	 * @param pageable : Objet de pagination nécessaire pour naviguer entre les pages.
+	 * @return Une pagination du résultat
 	 */
 	@GetMapping(path = "/{num-secu}/consultations")
 	public Page<ConsultationDto> getConsultations(@PathVariable(name = "num-secu", required = true) String secu, @ParameterObject Pageable pageable) {
@@ -36,9 +39,9 @@ public class PatientController {
 	}
 	
 	/**
-	 * 
-	 * @param nom : Rechercher un ou des patients ayant le nom spécifié <i>[OPTIONEL]</i>
-	 * @param numSecu : Rechercher un ou des patients ayant le numéro de sécurité sociale renseigné <i>[OPTIONEL]</i>
+	 * Récupère l'ensemble des patients
+	 * @param nom : Rechercher un ou des patients ayant le nom spécifié. <i>optionnel</i>
+	 * @param numSecu : Rechercher un ou des patients ayant le numéro de sécurité sociale renseigné. <i>optionnel</i>
 	 * @param pageable : S'il est nécessaire de naviguer entre les pages
 	 * @return Une collection paginable des patients
 	 */
@@ -46,6 +49,5 @@ public class PatientController {
 	public Page<PatientDto> all(@RequestParam(name = "nom",required = false) String nom, @RequestParam(name="num-secu",required=false) String numSecu, @ParameterObject Pageable pageable){
 		return patientService.getAll(nom, numSecu, pageable);
 	}
-
 
 }

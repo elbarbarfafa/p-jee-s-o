@@ -10,25 +10,19 @@ import fr.elbarbary.p_jee_s_o.repositories.ConsultationRepository;
 import fr.elbarbary.p_jee_s_o.repositories.PatientRepository;
 
 @Service
-public class PatientService {
-
+public class PatientServiceImpl implements IPatientService {
+	
 	protected PatientRepository repository;
 	protected PatientMapperImpl patientMapper;
 	protected ConsultationRepository consultationRepository;
 	
-	public PatientService(PatientRepository repository, ConsultationRepository consRepository) {
+	public PatientServiceImpl(PatientRepository repository, ConsultationRepository consRepository) {
 		this.repository = repository;
 		patientMapper = new PatientMapperImpl();
 		this.consultationRepository = consRepository;
 	}
 	
-	/**
-	 * 
-	 * @param nom : Nom du patient recherché
-	 * @param numeroSecu : Numéro de sécurité sociale recherché
-	 * @param pageable : Si nous devons naviguer autour de plusieurs résultats
-	 * @return Une collection pageable de patients
-	 */
+	@Override
 	public Page<PatientDto> getAll(String nom, String numeroSecu, Pageable pageable){
 		Page<PatientDto> result = null;
 		if((nom == null || nom.isEmpty()) || (numeroSecu == null || numeroSecu.isEmpty())) {
@@ -40,5 +34,5 @@ public class PatientService {
 		}
 		return result;
 	}
-	
+
 }

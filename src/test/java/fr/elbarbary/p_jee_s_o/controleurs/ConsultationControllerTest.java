@@ -32,8 +32,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.elbarbary.p_jee_s_o.controllers.ConsultationController;
 import fr.elbarbary.p_jee_s_o.dtos.ConsultationDto;
 import fr.elbarbary.p_jee_s_o.dtos.PrescriptionDetailDto;
-import fr.elbarbary.p_jee_s_o.services.ConsultationService;
-import fr.elbarbary.p_jee_s_o.services.PrescriptionService;
+import fr.elbarbary.p_jee_s_o.services.IConsultationService;
+import fr.elbarbary.p_jee_s_o.services.IPrescriptionService;
 
 @WebMvcTest(ConsultationController.class)
 @ExtendWith(MockitoExtension.class)
@@ -43,10 +43,10 @@ class ConsultationControllerTest {
 	private MockMvc mockMvc;
 
 	@MockBean
-	private ConsultationService consultationService;
+	private IConsultationService consultationService;
 
 	@MockBean
-	private PrescriptionService prescriptionService;
+	private IPrescriptionService prescriptionService;
 
 	@InjectMocks
 	private ConsultationController consultationController;

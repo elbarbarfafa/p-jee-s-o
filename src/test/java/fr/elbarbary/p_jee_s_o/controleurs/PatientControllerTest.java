@@ -18,8 +18,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import fr.elbarbary.p_jee_s_o.controllers.PatientController;
 import fr.elbarbary.p_jee_s_o.dtos.ConsultationDto;
-import fr.elbarbary.p_jee_s_o.services.ConsultationService;
-import fr.elbarbary.p_jee_s_o.services.PatientService;
+import fr.elbarbary.p_jee_s_o.services.IConsultationService;
+import fr.elbarbary.p_jee_s_o.services.IPatientService;
 
 
 @WebMvcTest(PatientController.class)
@@ -27,10 +27,10 @@ import fr.elbarbary.p_jee_s_o.services.PatientService;
 class PatientControllerTest {
 
 	@MockBean
-	PatientService patientService;
+	IPatientService patientService;
 	
 	@MockBean
-	ConsultationService consultationService;
+	IConsultationService consultationService;
 
 	Page<ConsultationDto> consultationsDto;
 	

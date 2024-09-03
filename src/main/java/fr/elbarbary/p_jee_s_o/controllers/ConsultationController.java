@@ -25,26 +25,34 @@ import fr.elbarbary.p_jee_s_o.exceptions.DateIsBeforeException;
 import fr.elbarbary.p_jee_s_o.exceptions.DateIsNullException;
 import fr.elbarbary.p_jee_s_o.exceptions.NotFoundException;
 import fr.elbarbary.p_jee_s_o.exceptions.RestControllerControlledErrorException;
-import fr.elbarbary.p_jee_s_o.services.ConsultationService;
+import fr.elbarbary.p_jee_s_o.services.IConsultationService;
 import fr.elbarbary.p_jee_s_o.services.ConsultationServiceImpl;
-import fr.elbarbary.p_jee_s_o.services.PrescriptionService;
+import fr.elbarbary.p_jee_s_o.services.IPrescriptionService;
 
+/**
+ * Contrôleur déclarant les routes disponibles pour les consultations
+ */
 @RestController
 @RequestMapping(path = "/api/consultations")
 public class ConsultationController {
 
-	private final ConsultationService consultationService;
-	private final PrescriptionService prescriptionService;
+	private final IConsultationService consultationService;
+	private final IPrescriptionService prescriptionService;
 
 	Logger logger = LoggerFactory.getLogger(ConsultationController.class);
 
-	public ConsultationController(ConsultationServiceImpl service, PrescriptionService prescriptionService) {
+	public ConsultationController(ConsultationServiceImpl service, IPrescriptionService prescriptionService) {
 		this.consultationService = service;
 		this.prescriptionService = prescriptionService;
 	}
 
+	/**
+	 * Méthode permettant l'ajout d'une consultation
+	 * @param dto : Objet JSON respectant la structure d'une consultation
+	 * @return Une réponse http contenant le DTO modifié
+	 */
 	@PostMapping
-	public ResponseEntity<Object> add(@RequestBody ConsultationDto dto) {
+	public ResponseEntity<ConsultationDto> add(@RequestBody ConsultationDto dto) {
 		try {
 			ConsultationDto ret = this.consultationService.add(dto);
 			return new ResponseEntity<>(ret, HttpStatus.OK);
@@ -65,6 +73,12 @@ public class ConsultationController {
 
 	}
 
+	/**
+	 * Cette méthode permet de modifier une consultation via son identifiant
+	 * @param id : Identifiant de la consultation
+	 * @param dto : DTO d'une consultation contenant les nouvelles valeurs
+	 * @return DTO modifié
+	 */
 	@PutMapping(path = "/{id}")
 	public ResponseEntity<ConsultationDto> edit(@PathVariable int id, @RequestBody ConsultationDto dto) {
 		try {
@@ -88,11 +102,10 @@ public class ConsultationController {
 	}
 
 	/**
-	 * Détailler les médicaments prescrits dans une consultation
-	 * 
-	 * @param id
-	 * @param pageable
-	 * @return
+	 * Permet de détailler les médicaments présents pour une consultation, donc l'ensemble des prescriptions d'une consultation
+	 * @param id : Identifiant de la consultation
+	 * @param pageable : Il est nécessaire de fournir les variables de pagination pour naviguer sur le résultat
+	 * @return Une pagination des médicaments de la consultation
 	 */
 	@GetMapping(path = "/{id}/medicaments")
 	public Page<PrescriptionDetailDto> getMedicaments(@PathVariable(name = "id") int id, @ParameterObject Pageable pageable) {
@@ -101,7 +114,7 @@ public class ConsultationController {
 
 	/**
 	 * Cette route permet de remplacer l'ensemble des prescriptions
-	 * @param id : de la consultation
+	 * @param id : Identifiant de la consultation
 	 * @param prescriptionsDto : Liste des prescriptions à attribuer à cette consultation
 	 * @return La liste des prescriptions attribuées
 	 */

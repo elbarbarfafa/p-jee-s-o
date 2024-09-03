@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import fr.elbarbary.p_jee_s_o.dtos.PrescriptionDetailDto;
 
-public interface PrescriptionService {
+public interface IPrescriptionService {
 	
 	/**
 	 * Détailler les médicaments prescrits dans une consultation

@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.elbarbary.p_jee_s_o.dtos.MedecinDto;
-import fr.elbarbary.p_jee_s_o.services.MedecinService;
+import fr.elbarbary.p_jee_s_o.services.IMedecinService;
 
 @RestController
 @RequestMapping(path = "/api/medecins")
 public class MedecinController {
 
-	protected MedecinService service;
+	protected IMedecinService service;
 	
-	public MedecinController(MedecinService medecinService)
+	public MedecinController(IMedecinService medecinService)
 	{
 		this.service = medecinService;
 	}
 	
 	/**
-	 * 
-	 * @param nom : Rechercher un ou des médecins ayant le nom spécifié <i>[OPTIONEL]</i>
-	 * @param matricule : Rechercher un ou des médecins ayant le numéro de matricule renseigné <i>[OPTIONEL]</i>
+	 * Cette méthode retourne l'ensemble des médecins sous forme de pagination
+	 * @param nom : Rechercher un ou des médecins ayant le nom spécifié. <i>optionnel</i>
+	 * @param matricule : Rechercher un ou des médecins ayant le numéro de matricule renseigné. <i>optionnel</i>
 	 * @param pageable : S'il est nécessaire de naviguer entre les pages
 	 * @return Une collection paginable des médecins
 	 */
